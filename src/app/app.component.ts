@@ -1,4 +1,6 @@
 import { Component } from "@angular/core";
+import { Book } from "./shared/book.model";
+import { Search } from "./shared/search.model";
 
 @Component({
   selector: "app-root",
@@ -7,7 +9,8 @@ import { Component } from "@angular/core";
 })
 export class AppComponent {
   title = "ng-goodreads";
-  books = [
+  searchTitle: string = "";
+  books: Array<Book> = [
     {
       id: "9780439023480",
       ISBN: "439023483",
@@ -77,4 +80,8 @@ export class AppComponent {
         "https://images.gr-assets.com/books/1360206420s/11870085.jpg"
     }
   ];
+
+  doSearch(search: Search) {
+    this.searchTitle = search.searchTerm;
+  }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Search } from '../shared/search.model';
 
 @Component({
   selector: 'app-search-box',
@@ -8,7 +9,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class SearchBoxComponent implements OnInit {
 
   searchTerm: string = '';
-  @Output() searchFired = new EventEmitter<{ searchTerm: string }>();
+  @Output() searchFired = new EventEmitter<Search>();
 
   constructor() { }
 
