@@ -10,7 +10,7 @@ import { Search } from "./shared/search.model";
 export class AppComponent {
   title = "ng-goodreads";
   searchTitle: string = "";
-  books: Array<Book> = [
+  books: Book[] = [
     {
       id: "9780439023480",
       ISBN: "439023483",
