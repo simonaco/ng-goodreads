@@ -19,6 +19,8 @@ export class BookTableComponent implements AfterViewInit, OnInit, OnChanges {
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = [
+    'edit',
+    'delete',
     'id',
     'ISBN',
     'ISBN13',
@@ -50,5 +52,17 @@ export class BookTableComponent implements AfterViewInit, OnInit, OnChanges {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
     this.table.dataSource = this.dataSource;
+  }
+
+  onDeleteBook(bookId: string) {
+    console.log(bookId);
+  }
+
+  onEditBook(bookId: string) {
+    console.log(bookId);
+  }
+
+  onAddBook() {
+    console.log('Adding book');
   }
 }
