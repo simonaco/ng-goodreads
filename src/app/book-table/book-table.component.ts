@@ -1,4 +1,14 @@
-import { AfterViewInit, Component, OnInit, OnChanges, Input, ViewChild, SimpleChanges } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  OnInit,
+  OnChanges,
+  Input,
+  Output,
+  EventEmitter,
+  ViewChild,
+  SimpleChanges
+} from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
@@ -12,6 +22,9 @@ import { Book } from '../shared/book.model';
 })
 export class BookTableComponent implements AfterViewInit, OnInit, OnChanges {
   @Input() books: Book[];
+  @Output() deleteFired = new EventEmitter<string>();
+  @Output() editFired = new EventEmitter<string>();
+  @Output() addFired = new EventEmitter();
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatTable) table: MatTable<Book>;
@@ -55,14 +68,14 @@ export class BookTableComponent implements AfterViewInit, OnInit, OnChanges {
   }
 
   onDeleteBook(bookId: string) {
-    console.log(bookId);
+    this.deleteFired.emit(bookId)
   }
 
   onEditBook(bookId: string) {
-    console.log(bookId);
+    this.editFired.emit(bookId)
   }
 
   onAddBook() {
-    console.log('Adding book');
+    this.addFired.emit()
   }
 }

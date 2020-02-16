@@ -331,6 +331,9 @@
   <app-search-box (searchFired)="doSearch($event)"></app-search-box>
   <app-book-table
     [books]="(books | filterSearch: searchTitle)"
+    (editFired)="doEdit($event)"
+    (deleteFired)="doDelete($event)"
+    (addFired)="doAdd()"
   >
   </app-book-table>
   <svg id="clouds" alt="Gray Clouds Background" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">

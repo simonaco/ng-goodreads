@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
 
   constructor(private bookService: BookService) { }
 
-  ngOnInit() {
+  getBooks() {
     this.bookService
       .fetchBooks()
       .subscribe((books) => {
@@ -23,7 +23,28 @@ export class AppComponent implements OnInit {
       })
   }
 
+  ngOnInit() {
+    this.getBooks()
+  }
+
   doSearch(search: Search) {
     this.searchTitle = search.searchTerm;
+  }
+
+  doAdd() {
+    console.log('Adding book');
+  }
+
+  doDelete(bookId: string) {
+    console.log(bookId);
+    this.bookService
+      .deleteBook(bookId)
+      .subscribe(data => {
+        this.getBooks();
+      })
+  }
+
+  doEdit(bookId: string) {
+    console.log(bookId);
   }
 }

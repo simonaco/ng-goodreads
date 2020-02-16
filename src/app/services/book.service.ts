@@ -45,4 +45,11 @@ export class BookService {
         catchError(this.handleError)
       )
   }
+
+  deleteBook(bookId: string) {
+    return this.http.delete<Book>(`/books/${bookId}`, httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
 }
