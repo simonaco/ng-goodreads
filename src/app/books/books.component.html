@@ -1,0 +1,8 @@
+<app-search-box (searchFired)="doSearch($event)"></app-search-box>
+<app-book-table
+  [books]="(books | filterSearch: searchTitle)"
+  (editFired)="doEdit($event)"
+  (deleteFired)="doDelete($event)"
+  (addFired)="doAdd()"
+>
+</app-book-table>

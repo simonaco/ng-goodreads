@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "npm-run-all --parallel client server",
-    "server": "npx json-server server/books.json --config server/server-config.json",
+    "server": "npx json-server server/books.json --config server/server-config.json --routes server/routes.json",
     "client": "ng serve",
     "build": "ng build",
     "test": "ng test",

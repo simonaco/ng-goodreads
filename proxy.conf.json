@@ -1,5 +1,5 @@
 {
-  "/books": {
+  "/api/books": {
     "target": "http://localhost:4242",
     "secure": false
   }

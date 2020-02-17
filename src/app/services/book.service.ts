@@ -39,7 +39,7 @@ export class BookService {
   };
 
   fetchBooks() {
-    return this.http.get<Book[]>('/books', httpOptions)
+    return this.http.get<Book[]>('/api/books', httpOptions)
       .pipe(
         retry(3),
         catchError(this.handleError)
@@ -47,7 +47,7 @@ export class BookService {
   }
 
   deleteBook(bookId: string) {
-    return this.http.delete<Book>(`/books/${bookId}`, httpOptions)
+    return this.http.delete<Book>(`/api/books/${bookId}`, httpOptions)
       .pipe(
         catchError(this.handleError)
       )
