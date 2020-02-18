@@ -16,6 +16,11 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatIconModule } from '@angular/material/icon';
 import { BooksComponent } from './books/books.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { EditComponent } from './edit/edit.component';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCardModule } from '@angular/material/card';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +29,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     FilterSearchPipe,
     BookTableComponent,
     BooksComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +42,11 @@ import { NotFoundComponent } from './not-found/not-found.component';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatIconModule
+    MatIconModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatCardModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
