@@ -1,15 +1,15 @@
-<button mat-raised-button color="primary" (click)="onAddBook()">
+<a mat-raised-button color="primary" [routerLink]="['/edit/new']">
   <mat-icon>add</mat-icon>
   Add Book
-</button>
+</a>
 <div class="mat-elevation-z8">
   <table mat-table class="full-width-table" matSort aria-label="Elements">
     <ng-container matColumnDef="edit">
       <th mat-header-cell *matHeaderCellDef>edit</th>
       <td mat-cell *matCellDef="let row">
-        <button mat-icon-button (click)="onEditBook(row.id)">
+        <a mat-icon-button [routerLink]="['/edit', row.id]">
           <mat-icon>edit</mat-icon>
-        </button>
+        </a>
       </td>
     </ng-container>
 

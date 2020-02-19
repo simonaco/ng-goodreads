@@ -1,18 +1,46 @@
-<form [formGroup]="bookForm" novalidate (ngSubmit)="onSubmit()">
+<form [formGroup]="bookForm" novalidate (ngSubmit)="onSubmit()" [ngStyle]="{ 'width': '50rem' }">
   <mat-card class="shipping-card">
     <mat-card-header>
       <mat-card-title>Book Information</mat-card-title>
     </mat-card-header>
     <mat-card-content>
       <div class="row">
-        <div class="col">
-          <mat-form-field class="full-width">
-            <input matInput placeholder="Title" formControlName="originalTitle">
-            <mat-error *ngIf="bookForm.controls['originalTitle'].hasError('required')">
-              Title is <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
-        </div>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="ID" formControlName="id">
+          <mat-error *ngIf="bookForm.controls['id'].hasError('required')">
+            <strong>ID</strong> should be the same as <strong>ISBN13</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="ISBN" formControlName="ISBN">
+          <mat-error *ngIf="bookForm.controls['ISBN'].hasError('required')">
+            ISBN is <strong>required</strong>
+          </mat-error>
+          <mat-error *ngIf="bookForm.controls['ISBN'].hasError('minlength') || bookForm.controls['ISBN'].hasError('maxlength')">
+            ISBN should be 9 in length
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="ISBN13" formControlName="ISBN13">
+          <mat-error *ngIf="bookForm.controls['ISBN13'].hasError('required')">
+            ISBN13 is <strong>required</strong>
+          </mat-error>
+          <mat-error *ngIf="bookForm.controls['ISBN13'].hasError('minlength') || bookForm.controls['ISBN13'].hasError('maxlength')">
+            ISBN13 should be 13 in length
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Title" formControlName="originalTitle">
+          <mat-error *ngIf="bookForm.controls['originalTitle'].hasError('required')">
+            Title is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
       </div>
       <div class="row">
         <mat-form-field class="full-width">
@@ -22,9 +50,44 @@
           </mat-error>
         </mat-form-field>
       </div>
+      <div class="row">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Year" formControlName="originalPublicationYear">
+          <mat-error *ngIf="bookForm.controls['originalPublicationYear'].hasError('required')">
+            Publication year is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Language Code" formControlName="languageCode">
+          <mat-error *ngIf="bookForm.controls['languageCode'].hasError('required')">
+            <strong>ID</strong> should be the same as <strong>ISBN13</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Rating" formControlName="averageRating">
+          <mat-error *ngIf="bookForm.controls['averageRating'].hasError('required')">
+            Average rating is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Cover URL" formControlName="smallImageUrl">
+          <mat-error *ngIf="bookForm.controls['smallImageUrl'].hasError('required')">
+            Cover URL is required <strong>required</strong>
+          </mat-error>
+          <mat-error *ngIf="bookForm.controls['smallImageUrl'].hasError('validUrl')">
+            Cover URL should start with 'https' and end with an image extension (.jpg, .jpeg, .png)
+          </mat-error>
+        </mat-form-field>
+      </div>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button color="primary" type="submit">Submit</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="submitDisabled">Submit</button>
     </mat-card-actions>
   </mat-card>
 </form>

@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: "", redirectTo: "books", pathMatch: "full" },
   { path: "books", component: BooksComponent },
   { path: "edit/:id", component: EditComponent },
+  { path: "edit/new", component: EditComponent },
   { path: "**", component: NotFoundComponent }
 ];
 

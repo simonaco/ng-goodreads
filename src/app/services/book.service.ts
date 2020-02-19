@@ -46,6 +46,28 @@ export class BookService {
       )
   }
 
+  fetchBook(bookId: string) {
+    return this.http.get<Book>(`/api/books/${bookId}`, httpOptions)
+      .pipe(
+        retry(3),
+        catchError(this.handleError)
+      )
+  }
+
+  createBook(book: Book) {
+    return this.http.post<Book>('/api/books', book, httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
+
+  updateBook(bookId: string, book: Book) {
+    return this.http.put<string>(`/api/books/${bookId}`, book, httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
+
   deleteBook(bookId: string) {
     return this.http.delete<Book>(`/api/books/${bookId}`, httpOptions)
       .pipe(
