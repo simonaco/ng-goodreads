@@ -15,7 +15,7 @@ export class BookTableDataSource extends DataSource<Book> {
 
   private _dataStream = new BehaviorSubject<Book[]>([]);
   public set books(v: Book[]) { this._dataStream.next(v); }
-  public get books(): Book[] { return this._dataStream.value; }
+  public get books(): Book[] { return this._dataStream.value ? this._dataStream.value : []; }
 
   paginator: MatPaginator;
   sort: MatSort;

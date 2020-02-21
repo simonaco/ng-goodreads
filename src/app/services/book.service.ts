@@ -62,7 +62,7 @@ export class BookService {
   }
 
   updateBook(bookId: string, book: Book) {
-    return this.http.put<string>(`/api/books/${bookId}`, book, httpOptions)
+    return this.http.put<Book>(`/api/books/${bookId}`, book, httpOptions)
       .pipe(
         catchError(this.handleError)
       )

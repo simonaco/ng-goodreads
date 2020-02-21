@@ -91,7 +91,12 @@
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "codeCoverageExclude": [
+              "src/app/book-table/**/*.ts",
+              "src/app/books/**/*.ts",
+              "src/app/edit/**/*.ts"
+            ]
           }
         },
         "lint": {
